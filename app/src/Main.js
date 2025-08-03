@@ -13,6 +13,10 @@ export default function Main() {
     return allNewDice
   }
 
+  function rollDice() {
+    setNewDice(getAllNewDice())
+  }
+
   const diceElements = newDice.map((number, index) => (
     <Die key={index} value={number} />
   ))
@@ -21,6 +25,9 @@ export default function Main() {
     <div className="container">
       <div className="board">
         <div className="die-container">{diceElements}</div>
+        <button className="roll-button" onClick={rollDice}>
+          Roll
+        </button>
       </div>
     </div>
   )
