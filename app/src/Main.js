@@ -2,9 +2,10 @@ import React from 'react'
 import './style/App.css'
 import Die from './components/Die'
 import { nanoid } from 'nanoid'
+import Confetti from 'react-confetti'
 
 export default function Main() {
-  const [dice, setDice] = React.useState(getAllNewDice())
+  const [dice, setDice] = React.useState(() => getAllNewDice())
 
   const gameWon = dice.every(
     (die) => die.isHeld && dice.every((die) => die.value === dice[0].value)
@@ -23,11 +24,15 @@ export default function Main() {
   }
 
   function rollDice() {
-    setDice((pervDice) =>
-      pervDice.map((die) =>
-        die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6) }
+    if (!gameWon) {
+      setDice((pervDice) =>
+        pervDice.map((die) =>
+          die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6) }
+        )
       )
-    )
+    } else {
+      setDice(getAllNewDice())
+    }
   }
 
   function hold(id) {
@@ -50,6 +55,7 @@ export default function Main() {
 
   return (
     <div className="container">
+      {gameWon && <Confetti />}
       <div className="board">
         <h1 className="title">Tenzies</h1>
         <p className="instructions">
