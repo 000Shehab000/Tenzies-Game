@@ -10,3 +10,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.isHeld {
+  background-color: #59e391;
+}
