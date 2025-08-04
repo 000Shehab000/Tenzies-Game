@@ -19,7 +19,11 @@ export default function Main() {
   }
 
   function rollDice() {
-    setDice(getAllNewDice())
+    setDice((pervDice) =>
+      pervDice.map((die) =>
+        die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6) }
+      )
+    )
   }
 
   function hold(id) {
