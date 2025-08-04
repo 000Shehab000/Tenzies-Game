@@ -6,6 +6,10 @@ import { nanoid } from 'nanoid'
 export default function Main() {
   const [dice, setDice] = React.useState(getAllNewDice())
 
+  const gameWon = dice.every(
+    (die) => die.isHeld && dice.every((die) => die.value === dice[0].value)
+  )
+
   function getAllNewDice() {
     let allNewDice = []
     for (let i = 0; i < 10; i++) {
@@ -54,7 +58,7 @@ export default function Main() {
         </p>
         <div className="die-container">{diceElements}</div>
         <button className="roll-button" onClick={rollDice}>
-          Roll
+          {gameWon ? 'New Game' : 'Roll'}
         </button>
       </div>
     </div>
