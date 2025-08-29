@@ -1,12 +1,138 @@
 .die {
-  width: 55px;
-  height: 55px;
+  width: clamp(45px, 8vw, 55px);
+  height: clamp(45px, 8vw, 55px);
   font-weight: bold;
-  font-size: 30px;
+  font-size: clamp(20px, 4vw, 30px);
   color: #2b283a;
   border: none;
   box-shadow: 0px 2px 2px 0px #00000026;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  position: relative;
+}
+
+.die:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px 0px #00000040;
+}
+
+.die:active {
+  transform: scale(0.95);
+}
+
+.die:focus {
+  outline: 2px solid #5035ff;
+  outline-offset: 2px;
+}
+
+.isHeld {
+  background-color: #59e391;
+  transform: scale(1.1);
+  box-shadow: 0px 4px 12px 0px #59e39180;
+}
+
+.isHeld:hover {
+  transform: scale(1.15);
+}
+
+.isHeld:focus {
+  outline: 2px solid #59e391;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .die {
+    border-radius: 6px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .die {
+    border-radius: 5px;
+  }
+
+  .die:hover {
+    transform: none;
+  }
+
+  .die:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 360px) {
+  .die {
+    border-radius: 4px;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .die:hover {
+    transform: none;
+  }
+
+  .die:active {
+    transform: scale(0.95);
+  }
+
+  .die {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .die {
+    box-shadow: 0px 1px 1px 0px #00000030;
+  }
+
+  .isHeld {
+    box-shadow: 0px 2px 6px 0px #59e39160;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .die {
+    transition: none;
+  }
+
+  .die:hover {
+    transform: none;
+  }
+
+  .die:active {
+    transform: none;
+  }
+
+  .isHeld {
+    transform: none;
+  }
+
+  .isHeld:hover {
+    transform: none;
+  }
+}
+
+/* Focus Visible for Keyboard Navigation */
+.die:focus-visible {
+  outline: 2px solid #5035ff;
+  outline-offset: 2px;
+}
+
+.isHeld:focus-visible {
+  outline: 2px solid #59e391;
+  outline-offset: 2px;
 }

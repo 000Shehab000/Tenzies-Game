@@ -5,25 +5,34 @@
 body {
   margin: 0;
   background-color: #0b2434;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 .container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .board {
   background-color: #f5f5f5;
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  max-width: 500px;
+  min-height: 500px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .die-container {
@@ -31,19 +40,206 @@ body {
   display: grid;
   grid-template-rows: repeat(2, auto);
   grid-template-columns: repeat(5, auto);
-  justify-content: space-evenly;
-  row-gap: 30px;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
 }
 
 .roll-button {
-  width: 130px;
-  height: 55px;
-  border-radius: 3.81px;
+  width: 150px;
+  height: 60px;
+  border-radius: 8px;
   background-color: #5035ff;
   color: white;
   box-shadow: 0px 3.2px 7.68px 0px #0000002e;
   border: none;
-  font-size: 25px;
-  margin: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 30px 0 0 0;
   cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.roll-button:hover {
+  background-color: #3a28cc;
+  transform: translateY(-2px);
+  box-shadow: 0px 5px 15px 0px #00000040;
+}
+
+.roll-button:active {
+  transform: translateY(0);
+}
+
+.roll-button:focus {
+  outline: 2px solid #5035ff;
+  outline-offset: 2px;
+}
+
+.title {
+  color: #2b283a;
+  font-size: clamp(28px, 5vw, 40px);
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+.instructions {
+  color: #4a4e74;
+  font-weight: 400;
+  font-size: clamp(16px, 3vw, 20px);
+  text-align: center;
+  margin: 15px 0 25px 0;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .board {
+    max-width: 450px;
+    min-height: 450px;
+    padding: 15px;
+  }
+
+  .die-container {
+    gap: 12px;
+  }
+
+  .roll-button {
+    width: 140px;
+    height: 55px;
+    font-size: 18px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .board {
+    max-width: 100%;
+    min-height: 400px;
+    padding: 15px 10px;
+    border-radius: 8px;
+  }
+
+  .die-container {
+    gap: 10px;
+    margin: 15px 0;
+  }
+
+  .roll-button {
+    width: 130px;
+    height: 50px;
+    font-size: 16px;
+    margin: 20px 0 0 0;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .instructions {
+    font-size: 14px;
+    margin: 10px 0 20px 0;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 360px) {
+  .board {
+    min-height: 380px;
+    padding: 12px 8px;
+  }
+
+  .die-container {
+    gap: 8px;
+  }
+
+  .roll-button {
+    width: 120px;
+    height: 45px;
+    font-size: 15px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .instructions {
+    font-size: 13px;
+  }
+}
+
+/* Landscape Mobile Styles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .container {
+    padding: 10px;
+  }
+
+  .board {
+    min-height: 300px;
+    padding: 15px;
+  }
+
+  .die-container {
+    gap: 10px;
+    margin: 15px 0;
+  }
+
+  .roll-button {
+    margin: 15px 0 0 0;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .instructions {
+    font-size: 14px;
+    margin: 8px 0 15px 0;
+  }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .board {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .roll-button {
+    transition: none;
+  }
+
+  .roll-button:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .container {
+    background-color: white;
+  }
+
+  .board {
+    box-shadow: none;
+    border: 2px solid #ccc;
+  }
+
+  .roll-button {
+    display: none;
+  }
 }
