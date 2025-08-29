@@ -125,7 +125,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Shehab Gamal El-Deen**
 
-- GitHub: [000Shehab000](https://github.com/yourusername)
+- GitHub: [000Shehab000](https://github.com/000Shehab000)
 - LinkedIn: [Shehab Gamal El-Deen](https://www.linkedin.com/in/shehab-gamal-el-deen/)
 
 ## 🙏 Acknowledgments
