@@ -8,7 +8,7 @@ A modern, interactive dice game built with React that challenges players to roll
 
 ## 🎯 Live Demo
 
-[Play Tenzies Game](https://your-deployment-url.com) _(Add your deployment URL here)_
+[Play Tenzies Game](https://tenzies-10-game.netlify.app/)
 
 ## ✨ Features
 
@@ -123,10 +123,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Shehab Gamal El-Deen**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
+- GitHub: [000Shehab000](https://github.com/yourusername)
+- LinkedIn: [Shehab Gamal El-Deen](https://www.linkedin.com/in/shehab-gamal-el-deen/)
 
 ## 🙏 Acknowledgments
 
